@@ -1,0 +1,302 @@
+:root{
+--crema: #faf9f4;
+--orange: #ffae4b;
+--blue: #233dff;
+--verde: #dcc500;
+--yellow: #FCF6BD; 
+--lilac: #C9D7F8;
+--rosa: #F5C7D5;
+--beige: #F0E5D8; 
+--dorado: #F9E0A5;
+--softblue: #A6C8D2;
+--lilaOscuro: #9B7CC4;  /* Violeta más oscuro */
+
+}
+
+
+@font-face {
+    font-family: 'catcheye';
+    src: url(/fonts/Catchye.otf);
+}
+
+@font-face {
+    font-family: 'mangiola';
+    src: url(/fonts/Mangiola-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'lemonMilk';
+    src: url(/fonts/LEMONMILK-Regular.otf);
+}
+
+@font-face {
+    font-family: 'lemonMilkLight';
+    src: url(/fonts/LEMONMILK-Light.otf);
+}
+
+@font-face {
+    font-family: 'lemonMilkMedium';
+    src: url(/fonts/LEMONMILK-Medium.otf);
+}
+
+* {
+    margin: 0 !important;
+    margin-right: 0 !important;
+    padding: 0; 
+    box-sizing: border-box !important; /* Asegura que el padding y los márgenes no desborden el contenido */
+  }
+  
+
+
+body {
+    font-family: 'Poppins', sans-serif !important;
+    height: 100vh; /* Asegura que el body ocupe toda la altura de la ventana */
+    width: 100vw; /* Asegura que el body ocupe todo el ancho de la ventana */
+    overflow-x: hidden; /* Oculta cualquier desbordamiento horizontal */
+    background: linear-gradient(45deg, var(--yellow), var(--lilac)); /* Gradiente suave de rosa claro a violeta oscuro */
+    background-size: 400% 400%;  /* Aumenta el tamaño para una transición más sutil */
+     animation: gradientBG 10s ease infinite;
+} 
+.scrolled {
+    background: linear-gradient(135deg, #F0E5D8, #F9E0A5, #F5C7D5);
+}
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    gap: 10px;
+}
+
+
+
+.nav-link {
+    color: #ffffff; /* Color por defecto */
+    transition: color 0.3s ease; /* Transición suave para el cambio */
+}
+
+.nav-link:hover {
+    color: var(--verde); /* Cambia de color al pasar el mouse */
+}
+
+.nav-link.active {
+    color: var(--orange); /* Color específico cuando esté activo */
+    font-weight: bold; /* Opcional: destacar con grosor */
+    border-bottom: 2px solid var(--verde); /* Línea debajo del enlace activo */
+}
+
+ 
+ 
+
+.navbar-nav {
+    display: flex;        /* Asegura que los elementos sean flexibles */
+    gap: 20px;            /* Añade espacio entre los elementos */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Alinea todo el contenido al principio (izquierda) */
+    align-items: flex-start; /* Alinea los elementos dentro del contenedor al principio (izquierda) */
+    height: 100vh;
+    margin-left: 29px !important;
+}
+
+
+
+
+
+/* Títulos */
+.container h2 {
+    font-size: 52px !important;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+.container span {
+    color: var(--verde);
+}
+.container h1 {
+    font-size: 68px !important;
+    margin-bottom: 30px;
+    white-space: nowrap; /* Previene saltos de línea */
+    height: 1.2em; /* Fija la altura para evitar cambios visuales */
+     
+}
+
+.highlight {
+    color: var(--verde); /* Color de las palabras dinámicas */
+}
+
+/* Botón */
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Centra los botones */
+    gap: 40px; /* Espacio entre los botones */
+    margin-top: 20px;
+    flex-wrap: nowrap; /* Evita que los botones se apilen en pantallas pequeñas */
+}
+
+
+.button {
+    padding: 12px 24px;
+    font-size: 20px;
+    color: #fff;
+    background-color: var(--verde) ;
+    border: none;
+    border-radius: 55px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    width: auto; /* Cambia el ancho fijo a automático */
+    max-width: 300px; /* Limita el ancho en pantallas grandes */
+    margin-top: 50px !important;
+    text-decoration: none; 
+}
+
+.button:hover {
+    background-color: gray;
+}
+
+
+/* ABOUT ME */
+.about-section {
+    height: 100vh; /* Hace que la sección ocupe el 100% de la pantalla */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.about-section .row {
+    width: 100%;
+}
+
+.image-container {
+    text-align: center;
+}
+.about-image {
+    width: 50%; /* Imagen más pequeña */
+    max-width: 350px; /* Limitar el tamaño máximo de la imagen */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0; /* Inicia invisible */
+    animation: fadeInAndMove 1s ease-out forwards; /* Efecto de desvanecimiento y movimiento */
+}
+.about-info {
+    text-align: left;
+    padding: 20px;
+    opacity: 0; /* Inicia invisible */
+    animation: fadeInText 1s ease-out 0.5s forwards; /* Efecto de desvanecimiento para el texto */
+}
+
+
+.about-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.about-info p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+@keyframes fadeInAndMove {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.8); /* Inicia más pequeña y un poco hacia abajo */
+    }
+    50% {
+        opacity: 0.5;
+        transform: translateY(10px) scale(1.05); /* Se mueve ligeramente hacia arriba y crece un poco */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1); /* Se posiciona en su lugar final */
+    }
+}
+
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media Queries para pantallas pequeñas */
+
+
+    @media (max-width: 768px) {
+
+            .container h2 {
+                font-size: 24px !important; /* Ajusta el tamaño del subtítulo */
+            }
+
+            .container h1 {
+                font-size: 42px !important; /* Reduce el tamaño del título */
+            }
+
+            .button-container {
+                flex-direction: row; /* Mantiene los botones en fila */
+                justify-content: center; /* Centra los botones */
+                gap: 30px; /* Aumenta el espacio entre los botones en tabletas */
+            }
+        
+            .button {
+                font-size: 18px; /* Botones más grandes en móviles */
+                padding: 15px 30px; /* Aumenta el tamaño de los botones */
+                max-width: 100%; /* Los botones ocuparán todo el ancho posible */
+                width: auto !important;
+            }
+
+            .about-image {
+                width: 100%; /* La imagen se ajusta en pantallas pequeñas */
+            }
+
+            .about-info {
+                text-align: center; /* Centra el texto en pantallas pequeñas */
+            }
+}
+
+@media (max-width: 480px) {
+    .container h2 {
+        font-size: 20px !important;
+    }
+
+    .container h1 {
+        font-size: 28px !important;
+    }
+
+    .button {
+        font-size: 14px;
+        padding: 8px 16px;
+        width: 100% !important; /* Ocupa el ancho completo en pantallas muy pequeñas */
+       text-align: center;
+    }
+
+    .about-image {
+        width: 100%; /* La imagen se ajusta en pantallas pequeñas */
+    }
+
+    .about-info {
+        text-align: center; /* Centra el texto en pantallas pequeñas */
+    }
+}
