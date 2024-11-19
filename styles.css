@@ -56,6 +56,8 @@ body {
     background: linear-gradient(45deg, var(--yellow), var(--lilac)); /* Gradiente suave de rosa claro a violeta oscuro */
     background-size: 400% 400%;  /* Aumenta el tamaño para una transición más sutil */
      animation: gradientBG 10s ease infinite;
+     scroll-behavior: smooth;
+
 } 
 .scrolled {
     background: linear-gradient(135deg, #F0E5D8, #F9E0A5, #F5C7D5);
@@ -173,74 +175,73 @@ header {
 
 
 /* ABOUT ME */
-.about-section {
-    height: 100vh; /* Hace que la sección ocupe el 100% de la pantalla */
+.about {
+     padding: 100px 0;
+    color: #333;
+    height: 100vh;
+  }
+ 
+  .about-content {
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 0 20px;
-}
-
-.about-section .row {
-    width: 100%;
-}
-
-.image-container {
-    text-align: center;
-}
-.about-image {
-    width: 50%; /* Imagen más pequeña */
-    max-width: 350px; /* Limitar el tamaño máximo de la imagen */
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+  } 
+  .about-image img {
+    width: 140% !important;
+    height: auto;
     border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    opacity: 0; /* Inicia invisible */
-    animation: fadeInAndMove 1s ease-out forwards; /* Efecto de desvanecimiento y movimiento */
-}
-.about-info {
-    text-align: left;
-    padding: 20px;
-    opacity: 0; /* Inicia invisible */
-    animation: fadeInText 1s ease-out 0.5s forwards; /* Efecto de desvanecimiento para el texto */
-}
+    opacity: 1; /* Inicialmente invisible */
+    transform: scale(0.8) rotate(-10deg); /* Pequeño y rotado */
+    transition: all 1.5s ease-out; /* Suavidad del efecto */
+  }
+  .about-image img.animate {
+    opacity: 1; /* Visible al activarse */
+    transform: scale(1) rotate(0deg); /* Tamaño y posición normales */
+  }
+  .about-image {
+    width: 50%;
+    max-width: 300px;
+  }
 
+  .about-image img:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+  }
+  .about-text {
+    width: 50%;
+    padding-right: 20px;
+  }
 
-.about-info h2 {
+  .about-text h2 {
     font-size: 2.5rem;
-    margin-bottom: 20px;
-}
+    font-weight: 600;
+    margin-bottom: 20px !important; 
+  }
 
-.about-info p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: #333;
-}
 
-@keyframes fadeInAndMove {
-    0% {
-        opacity: 0;
-        transform: translateY(20px) scale(0.8); /* Inicia más pequeña y un poco hacia abajo */
-    }
-    50% {
-        opacity: 0.5;
-        transform: translateY(10px) scale(1.05); /* Se mueve ligeramente hacia arriba y crece un poco */
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0) scale(1); /* Se posiciona en su lugar final */
-    }
+/* Habilidades */
+.skills {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-
-@keyframes fadeInText {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
+.skills-grid {
+    display: flex; /* Make the container a flexbox */
+    flex-wrap: wrap; /* Allow items to wrap onto multiple lines */
+    justify-content: space-between; /* Distribute items evenly with some space between them */
+    width: 100%; /* Ensure the grid fills the available width */
+  }
+  
+  .skill-item {
+    /* Existing styles for individual skill items */
+    width: 25%; /* Set width to 25% to fit 4 items per row */
+    flex: 0 0 25%; /* Override default flex behavior and maintain fixed width */
+    text-align: center; /* Center the content within each skill item */
+  }
+  
 /* Media Queries para pantallas pequeñas */
 
 
@@ -266,14 +267,23 @@ header {
                 max-width: 100%; /* Los botones ocuparán todo el ancho posible */
                 width: auto !important;
             }
+            .about-content {
+                flex-direction: column; /* Apila los elementos verticalmente */
+                text-align: left; /* Alinea todo al centro */
+              }
+              .about-text,
+              .about-image {
+                width: 100%;
+                margin-bottom: 20px;
+              }
 
-            .about-image {
-                width: 100%; /* La imagen se ajusta en pantallas pequeñas */
+              .about-image img {
+                max-width: 80%; /* Ajusta el tamaño de la imagen en pantallas pequeñas */
+                margin-top: 20px !important;
             }
 
-            .about-info {
-                text-align: center; /* Centra el texto en pantallas pequeñas */
-            }
+            
+            
 }
 
 @media (max-width: 480px) {
@@ -291,12 +301,5 @@ header {
         width: 100% !important; /* Ocupa el ancho completo en pantallas muy pequeñas */
        text-align: center;
     }
-
-    .about-image {
-        width: 100%; /* La imagen se ajusta en pantallas pequeñas */
-    }
-
-    .about-info {
-        text-align: center; /* Centra el texto en pantallas pequeñas */
-    }
+ 
 }

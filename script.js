@@ -106,29 +106,41 @@ tsParticles.load("tsparticles", {
         }
     }
 });
-
-window.addEventListener('scroll', function () {
-    let body = document.querySelector('body');
-    if (window.scrollY > 50) {  // Cuando el scroll es mayor a 50px
-        body.classList.add('scrolled'); // Cambia el fondo
-    } else {
-        body.classList.remove('scrolled'); // Restaura el fondo
-    }
-});
-
-// Detecta el desplazamiento del usuario y verifica si la imagen está en el viewport
-window.addEventListener('scroll', function () {
-    const image = document.getElementById('aboutImage');
-
-    // Verifica si la imagen está visible en el viewport
-    const imagePosition = image.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-
-    // Si la imagen está dentro del viewport, reinicia la animación
-    if (imagePosition.top >= 0 && imagePosition.top <= windowHeight) {
-        image.style.animation = 'none'; // Resetea la animación
-        image.offsetHeight; // Forzamos a que el navegador vuelva a aplicar el estilo
-        image.style.animation = 'fadeInAndMove 1s ease-out forwards'; // Reinicia la animación
-    }
-});
-
+document.addEventListener("DOMContentLoaded", () => {
+    const aboutImage = document.querySelector(".about-img");
+  
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            aboutImage.classList.add("animate"); // Activa la clase que aplica el efecto
+          } else {
+            aboutImage.classList.remove("animate"); // Quita la animación si sales de la sección
+          }
+        });
+      },
+      {
+        threshold: 0.5, // El efecto se activa cuando el 50% de la sección está visible
+      }
+    );
+  
+    const aboutSection = document.querySelector(".about");
+    observer.observe(aboutSection);
+  });
+  
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault(); // Evita el comportamiento predeterminado
+      const targetId = this.getAttribute("href").substring(1); // Obtén el ID de destino
+      const targetElement = document.getElementById(targetId);
+  
+      if (targetElement) {
+        // Desplázate suavemente hacia la sección
+        window.scrollTo({
+          top: targetElement.offsetTop,
+          behavior: "smooth",
+        });
+      }
+    });
+  });
+  
