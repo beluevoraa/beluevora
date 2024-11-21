@@ -143,4 +143,21 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-  
+  const cards = document.querySelectorAll('.project-card');
+
+cards.forEach(card => {
+  card.style.opacity = '0';
+  card.style.transform = 'translateY(50px)';
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+        observer.unobserve(card);
+      }
+    });
+  });
+
+  observer.observe(card);
+});

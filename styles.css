@@ -176,7 +176,7 @@ header {
 
 /* ABOUT ME */
 .about {
-     padding: 100px 0;
+    padding: 10px 0;
     color: #333;
     height: 100vh;
   }
@@ -184,35 +184,43 @@ header {
   .about-content {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     max-width: 1200px;
     margin: 0 auto;
   } 
+
+
   .about-image img {
-    width: 140% !important;
+    width: 100% !important;
     height: auto;
     border-radius: 10px;
     opacity: 1; /* Inicialmente invisible */
     transform: scale(0.8) rotate(-10deg); /* Pequeño y rotado */
     transition: all 1.5s ease-out; /* Suavidad del efecto */
+ 
   }
   .about-image img.animate {
     opacity: 1; /* Visible al activarse */
     transform: scale(1) rotate(0deg); /* Tamaño y posición normales */
   }
   .about-image {
-    width: 50%;
-    max-width: 300px;
-  }
-
-  .about-image img:hover {
-    transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
-  }
+    flex: 1;
+    max-width: 400px; /* Ajusta según tus necesidades */
+ }
   .about-text {
-    width: 50%;
+    flex: 1;
     padding-right: 20px;
   }
 
+  .about-text p {
+    line-height: 2;
+  }
+  
+  
+  .about-image img:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+  }
+  
   .about-text h2 {
     font-size: 2.5rem;
     font-weight: 600;
@@ -221,13 +229,16 @@ header {
 
 
 /* Habilidades */
-.skills {
-    height: 100vh;
+#skills {
+    height: 100vh; /* Ocupa el 100% de la altura de la pantalla */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
+    padding: 20px;
+    background: linear-gradient(45deg, var(--yellow), var(--lilac)); /* Gradiente suave de rosa claro a violeta oscuro */
+
+ }
 .skills-grid {
     display: flex; /* Make the container a flexbox */
     flex-wrap: wrap; /* Allow items to wrap onto multiple lines */
@@ -236,12 +247,115 @@ header {
   }
   
   .skill-item {
-    /* Existing styles for individual skill items */
-    width: 25%; /* Set width to 25% to fit 4 items per row */
-    flex: 0 0 25%; /* Override default flex behavior and maintain fixed width */
-    text-align: center; /* Center the content within each skill item */
+    width: 25%;
+    flex: 0 0 25%;
+    text-align: center;
+    margin-bottom: 40px !important; /* Ajusta este valor para controlar el espacio entre filas */
+}
+
+  #skills h2, #projects h2, .contacto h2{
+    font-size: 3rem; /* Aumenta el tamaño del título */
+    color: #333; /* Cambia el color a uno que te guste */
+    text-align: center; /* Centra el título */
+    margin-bottom: 30px !important; /* Ajusta el margen debajo del título */
+    font-weight: 600;
+    text-transform:uppercase ;
+   
+}
+
+.skill-item:hover .skill-icon svg {
+    transform: scale(1.2); /* Aumenta el tamaño en un 20% */
+    transition: transform 0.3s ease-in-out; /* Añade una transición suave */
+  }
+  /* Projects */
+  .projects {
+    background: linear-gradient(45deg, var(--yellow), var(--lilac)); /* Gradiente suave de rosa claro a violeta oscuro */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
   }
   
+  .project {
+    margin-top: 40px !important;
+    display: flex;
+    align-items: center;
+    width: 1200px; /* Ajusta el ancho según tus necesidades */
+    margin: 20px;
+  }
+    
+  .project img {
+    width: 50%; /* La imagen ocupará la mitad del ancho */
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+  .project:hover img {
+    transform: scale(1.1);
+  }
+
+  .project-info {
+    width: 50%;
+    padding: 20px;
+    margin-left: 60px;
+  }
+  
+
+  /* Contacto  */
+  .contacto {
+    background: linear-gradient(45deg, var(--yellow), var(--lilac)); /* Gradiente suave de rosa claro a violeta oscuro */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .contacto form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .contacto label {
+    margin-bottom: 10px;
+  }
+  
+  .contacto input,
+  .contacto textarea {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .contacto button {
+    background-color: var(--verde);
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 30px !important;
+  }
+
+  .redes-sociales {
+    text-align: center;
+    margin-top: 20px !important;
+}
+
+.redes-sociales .iconos {
+    margin-top: 20px !important; /* Espaciado superior general */
+    display: flex; /* Flexbox para alinear los íconos */
+    justify-content: center; /* Centra los íconos horizontalmente */
+    gap: 15px; /* Espaciado entre íconos */
+  }
+  .redes-sociales .iconos a:last-child {
+    margin-right: 0; /* Elimina el espacio extra del último icono */
+  }  
 /* Media Queries para pantallas pequeñas */
 
 
@@ -301,5 +415,9 @@ header {
         width: 100% !important; /* Ocupa el ancho completo en pantallas muy pequeñas */
        text-align: center;
     }
- 
+    .about-image img {
+        max-width: 50%; /* Ajusta el tamaño de la imagen en pantallas pequeñas */
+        margin-top: 20px !important;
+        flex: 1;
+    }
 }
