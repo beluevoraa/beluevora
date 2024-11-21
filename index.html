@@ -16,7 +16,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <!-- Logo a la izquierda -->
-            <a class="navbar-brand" href="#inicio">Belén Évora</a>
+            <a class="navbar-brand" href="#inicio" id="logoText">Belén Évora</a>
             
             <!-- Botón hamburguesa para pantallas pequeñas -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,34 +27,35 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#inicio">Inicio</a>
+                        <a class="nav-link" href="#inicio"  id="homeLink">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">Sobre mí</a>
+                        <a class="nav-link" href="#about" id="aboutLink"> Sobre mí</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#projects">Proyectos</a>
+                        <a class="nav-link" href="#projects" id="projectsLink">Proyectos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#skills">Habilidades</a>
+                        <a class="nav-link" href="#skills" id="skillsLink" >Habilidades</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contacto">Contacto</a>
+                        <a class="nav-link" href="#contacto"id="contactLink">Contacto</a>
                     </li>
                 </ul>
             </div>
         </div>
+        <!-- <button id="languageButton" onclick="toggleLanguage()">🇺🇸</button> -->
     </nav>
 </header>
 
 
 <div class="container" id="inicio">
-  <h2>Hola!  soy <span>Belén</span></h2>
+  <h2 id="greetingText">Hola!  soy <span id="name">Belén</span></h2>
   <h1>Me gusta <span id="dynamicText" class="highlight"></span></h1>
 
   <div class="button-container">
-      <button class="button">Contactame</button>
-      <a href="https://drive.google.com/link-al-cv" class="button" target="_blank" rel="noopener noreferrer">Mi Currículum</a>
+      <button class="button" id="contactButton">Contactame</button>
+      <a href="https://drive.google.com/link-al-cv" class="button" target="_blank" rel="noopener noreferrer" id="cvButton">Mi Currículum</a>
   </div>
 
   <div class="iconos-sociales">
@@ -92,12 +93,12 @@
   <div class="container">
     <div class="about-content">
       <div class="about-text">
-        <h2>Sobre mí</h2>
-        <p>¡Hola! Soy Belén y me encanta darle un toque bonito a todo lo que hago.</p>
-        <p>Disfruto mucho creando proyectos que sean tanto estéticos como funcionales, combinando mi creatividad y utilidad en cada detalle.</p>
-       <p>Estudio la <span>Tecnicatura en informática</span> en Facultad de Ingeniería (FiNG) y realicé <span>JaP!</span> con Ceibal y 
+        <h2 id="aboutTitle">Sobre mí</h2>
+        <p id="aboutText1">¡Hola! Soy Belén y me encanta darle un toque bonito a todo lo que hago.</p>
+        <p id="aboutText2">Disfruto mucho creando proyectos que sean tanto estéticos como funcionales, combinando mi creatividad y utilidad en cada detalle.</p>
+       <p id="aboutText3">Estudio la <span id="career">Tecnicatura en informática</span> en Facultad de Ingeniería (FiNG) y realicé <span id="course">JaP!</span> con Ceibal y 
         CUTI (Cámara Uruguaya de Tecnologías de la Información).      </p>
-        <p>Como estoy en constante aprendizaje continúo realizando cursos en Udemy y Coursera.</p>
+        <p id="aboutText4">Como estoy en constante aprendizaje continúo realizando cursos en Udemy y Coursera.</p>
       </div>
       <div class="about-image">
         <img src="img/yo.jpg" alt="Foto de Belén" class="about-img">
@@ -108,24 +109,24 @@
 
 
 <section class="projects" id="projects">
-  <h2>Mis proyectos</h2>
+  <h2 "projectsTitle">Mis proyectos</h2>
   <div class="project">
     <img src="img/e-commerce-removebg.png" alt="Imagen Proyecto 1">
    
     <div class="project-info">
-      <h3>Página e-commerce </h3>
-      <p>Cuenta con todas las funcionalidades necesarias para una experiencia completa de compra en línea. </p> <p> Incluye un carrito de compras funcional que permite agregar y eliminar productos, un sistema de calificaciones y comentarios para los productos, 
-        un apartado de productos relacionados, un proceso de compra detallado con cálculo dinámico de costos y selección de métodos de pago</p> <p> Posee un diseño responsive adaptado para diferentes dispositivos. </p>
-      <a href="https://github.com/MarciaBeron/proyecto-final-jap" class="button">Ver Código</a>
+      <h3 id="project1Title">Página e-commerce </h3>
+      <p>Cuenta con todas las funcionalidades necesarias para una experiencia completa de compra en línea. </p> <p id="project1Text2"> Incluye un carrito de compras funcional que permite agregar y eliminar productos, un sistema de calificaciones y comentarios para los productos, 
+        un apartado de productos relacionados, un proceso de compra detallado con cálculo dinámico de costos y selección de métodos de pago</p> <p id="project1Text3"> Posee un diseño responsive adaptado para diferentes dispositivos. </p>
+      <a id="project1Link" href="https://github.com/MarciaBeron/proyecto-final-jap" class="button">Ver Código</a>
     </div>
 
   </div>
     <div class="project">
     <div class="project-info">
-      <h3>Invitaciones digitales freelance </h3>
-      <p>Posee detalles como ubicación en tiempo real, música integrada, confirmación de asistencia interactiva y diseño atractivo. </p>
-      <p> Es completamente responsive, asegurando una experiencia de usuario fluida en cualquier dispositivo.  </p>
-      <a href="https://vercel.com/belens-projects-ba7c0376/cumple-de-cae" class="button">Ver Código</a>
+      <h3 id="project2Title">Invitaciones digitales freelance </h3>
+      <p id="project2Text1">Posee detalles como ubicación en tiempo real, música integrada, confirmación de asistencia interactiva y diseño atractivo. </p>
+      <p id="project2Text2"> Es completamente responsive, asegurando una experiencia de usuario fluida en cualquier dispositivo.  </p>
+      <a id="project2Link" href="https://vercel.com/belens-projects-ba7c0376/cumple-de-cae" class="button">Ver Código</a>
   </div>
   <img src="img/invitacion.png" alt="Imagen Proyecto 1">
 
@@ -278,6 +279,7 @@
     </div>
 
  <!-- Bootstrap JS -->
+ <script src="translation.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.37.0/tsparticles.min.js"></script>
  <script src="https://cdn.lordicon.com/lordicon.js"></script>
  <script src="https://cdn.lordicon.com/lordicon.js"></script>

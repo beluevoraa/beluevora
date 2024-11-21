@@ -128,21 +128,32 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(aboutSection);
   });
   
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault(); // Evita el comportamiento predeterminado
-      const targetId = this.getAttribute("href").substring(1); // Obtén el ID de destino
-      const targetElement = document.getElementById(targetId);
+//  // Function to check if an element is visible in the viewport
+// function isElementVisible(el) {
+//     const rect = el.getBoundingClientRect();
+//     return (
+//       rect.top >= 0 &&
+//       rect.left >= 0 &&
+//       rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+//       rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+//     );
+//   }
   
-      if (targetElement) {
-        // Desplázate suavemente hacia la sección
-        window.scrollTo({
-          top: targetElement.offsetTop,
-          behavior: "smooth",
-        });
-      }
-    });
-  });
+//   // Add event listener for window scroll
+//   window.addEventListener("scroll", function() {
+//     const sections = ["inicio", "about", "projects", "skills", "contacto"];
+//     const navLinks = document.querySelectorAll(".navbar-nav a");
+  
+//     sections.forEach((sectionId, index) => {
+//       const section = document.getElementById(sectionId);
+//       if (isElementVisible(section)) {
+//         navLinks[index].classList.add("active"); // Add "active" class for active link
+//       } else {
+//         navLinks[index].classList.remove("active"); // Remove "active" class
+//       }
+//     });
+//   });
+  
   const cards = document.querySelectorAll('.project-card');
 
 cards.forEach(card => {

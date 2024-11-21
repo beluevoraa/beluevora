@@ -98,8 +98,7 @@ header {
     border-bottom: 2px solid var(--verde); /* Línea debajo del enlace activo */
 }
 
- 
- 
+
 
 .navbar-nav {
     display: flex;        /* Asegura que los elementos sean flexibles */
